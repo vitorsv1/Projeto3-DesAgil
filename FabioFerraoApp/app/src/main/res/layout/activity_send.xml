@@ -15,7 +15,10 @@
         android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:hint="Mensagem" />
+        android:hint="Mensagem"
+        android:layout_column="2"
+        android:layout_row="0"
+        tools:ignore="GridLayout" />
 
     <EditText android:id="@+id/edit_number"
         android:layout_rowSpan="1"
