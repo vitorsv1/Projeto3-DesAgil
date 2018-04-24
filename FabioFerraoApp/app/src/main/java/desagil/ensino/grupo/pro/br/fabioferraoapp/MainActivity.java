@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonSMS = (Button) findViewById(R.id.button_sms);
+        Button buttonSMS = (Button) findViewById(R.id.button_send);
 
         buttonSMS.setOnClickListener(new View.OnClickListener() {
             @Override
