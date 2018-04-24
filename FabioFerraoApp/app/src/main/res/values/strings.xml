@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Exemplo SMS</string>
+    <string name="oba">Oba</string>
+    <string name="telefone">Telefone</string>
+    <string name="backspace">Backspace</string>
+    <string name="space">Space</string>
+    <string name="alert">Alert</string>
+    <string name="send">Send</string>
+    <string name="morse">MORSE</string>
+    <string name="oba_em_morse">Oba em morse</string>
 </resources>
