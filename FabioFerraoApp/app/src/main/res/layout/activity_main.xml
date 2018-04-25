@@ -40,7 +40,8 @@
 
     <TableRow
         android:layout_height="197dp"
-        android:layout_weight="50">
+        android:layout_weight="50"
+        android:gravity="bottom">
 
         <TableLayout
             android:layout_column="0"
