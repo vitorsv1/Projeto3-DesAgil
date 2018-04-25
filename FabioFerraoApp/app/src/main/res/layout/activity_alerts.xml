@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".message">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qual alerta deseja enviar?"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <Button
+        android:id="@+id/alert_ajuda"
+        android:layout_width="190dp"
+        android:layout_height="41dp"
+        android:text="Preciso de ajuda!"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+    <Button
+        android:id="@+id/alert_banheiro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preciso ir ao banheiro!"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="447dp" />
+</android.support.constraint.ConstraintLayout>

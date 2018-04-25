@@ -19,6 +19,8 @@
 
         <activity android:name=".SendActivity">
         </activity>
+        <activity android:name=".Contacts" />
+        <activity android:name=".message" />
 
     </application>
 

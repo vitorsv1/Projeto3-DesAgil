@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_SEND_SMS = 0;
 
 
-    private void openSendActivity() {
-        // Exemplo de código para abrir uma activity. Especificamente, a SendActivity.
-        Intent intent = new Intent(this, SendActivity.class);
+    private void openContactsActivity() {
+        // Exemplo de código para abrir uma activity
+        Intent intent = new Intent(this, Contacts.class);
         startActivity(intent);
 
         // Depois de abrir a SendActivity, não há porque manter a MainActivity aberta.
@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonSMS = (Button) findViewById(R.id.button_send);
+        Button buttonSMS = (Button) findViewById(R.id.button_alert);
 
         buttonSMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-                    openSendActivity();
+                    openContactsActivity();
                 }
                 // Se não temos permissão para enviar SMS, precisamos pedir essa permissão.
                 else {
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         if(request == REQUEST_SEND_SMS) {
             // ...e a permissão foi de fato concedida, abrimos a SendActivity.
             if(results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED) {
-                openSendActivity();
+                openContactsActivity();
             }
             // Senão, permanecemos na mesma activity e mostramos uma bolha de mensagem.
             else {

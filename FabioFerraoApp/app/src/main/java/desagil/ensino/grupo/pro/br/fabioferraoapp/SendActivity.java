@@ -1,10 +1,11 @@
 package desagil.ensino.grupo.pro.br.fabioferraoapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,33 +17,31 @@ public class SendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
 
-        final EditText editMessage = (EditText) findViewById(R.id.edit_message);
-        final EditText editNumber = (EditText) findViewById(R.id.edit_number);
+        Intent intent = getIntent();
+        final String numero_d = intent.getStringExtra(message.numero);
+        final String mensagem_d = intent.getStringExtra(message.mensagem);
+        Utils.showToast(SendActivity.this, numero_d);
+        Utils.showToast(SendActivity.this, mensagem_d);
 
-        Button button = (Button) findViewById(R.id.button_send);
+        Button buttonenviar = (Button) findViewById(R.id.Enviar);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonenviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = editMessage.getText().toString();
-
-                if(message.isEmpty()) {
+                if (mensagem_d.isEmpty()) {
                     Utils.showToast(SendActivity.this, "Mensagem vazia!");
                     return;
                 }
 
-                String number = editNumber.getText().toString();
-
-                if(!PhoneNumberUtils.isGlobalPhoneNumber(number)) {
+                if (!PhoneNumberUtils.isGlobalPhoneNumber(numero_d)) {
+                    Utils.showToast(SendActivity.this, numero_d);
                     Utils.showToast(SendActivity.this, "Telefone inválido!");
                     return;
                 }
 
                 SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage(number, null, message, null, null);
+                manager.sendTextMessage(numero_d, null, mensagem_d, null, null);
 
-                editMessage.setText("");
-                editNumber.setText("");
             }
         });
     }

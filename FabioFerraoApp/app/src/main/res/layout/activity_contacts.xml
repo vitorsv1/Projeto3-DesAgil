@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Contacts">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="239dp"
+        android:layout_height="25dp"
+        android:text="Para quem o alerta deve ser enviado?"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <Button
+        android:id="@+id/alert_cuidador"
+        android:layout_width="185dp"
+        android:layout_height="53dp"
+        android:text="Cuidador"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <Button
+        android:id="@+id/alert_amigo"
+        android:layout_width="186dp"
+        android:layout_height="47dp"
+        android:text="Amigo"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="448dp" />
+</android.support.constraint.ConstraintLayout>
