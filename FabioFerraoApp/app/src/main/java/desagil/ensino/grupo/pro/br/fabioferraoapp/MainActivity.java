@@ -15,15 +15,25 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_SEND_SMS = 0;
 
 
-    private void openContactsActivity() {
-        // Exemplo de código para abrir uma activity
-        Intent intent = new Intent(this, Contacts.class);
-        startActivity(intent);
+//    private void openContactsActivity() {
+//        // Exemplo de código para abrir uma activity
+//        Intent intent = new Intent(this, Contacts.class);
+//        startActivity(intent);
+//
+//        // Depois de abrir a SendActivity, não há porque manter a MainActivity aberta.
+//        finish();
+//    }
 
-        // Depois de abrir a SendActivity, não há porque manter a MainActivity aberta.
+    private void openAlertActivity() {
+        Intent intent1 = getIntent();
+//        final String numero_d = intent1.getStringExtra(Contacts.numero);
+        Intent intent = new Intent(this, SendAlert.class);
+        //intent.setData(Uri.parse(numero_contato));
+//        intent.putExtra(mensagem, mensagem_e);
+//        intent.putExtra(numero, numero_d);
+        startActivity(intent);
         finish();
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-                    openContactsActivity();
+                    openAlertActivity();
                 }
                 // Se não temos permissão para enviar SMS, precisamos pedir essa permissão.
                 else {
@@ -61,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         if(request == REQUEST_SEND_SMS) {
             // ...e a permissão foi de fato concedida, abrimos a SendActivity.
             if(results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED) {
-                openContactsActivity();
+                openAlertActivity();
             }
             // Senão, permanecemos na mesma activity e mostramos uma bolha de mensagem.
             else {
