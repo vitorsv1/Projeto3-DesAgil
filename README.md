@@ -7,7 +7,9 @@ Aplicativo para Fabio Ferrão - Código Morse
 
 -Vitor Satyro
 
--Warlen
+-Jorge 
+
+-Vitor Liu
 
 -Helio Paiva
 
