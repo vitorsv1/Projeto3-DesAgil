@@ -35,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        final String numero_d =  "11956557991"; //intent.getStringExtra("11956557991");
-        final String mensagem_d = "Preciso de Ajuda" ;//intent.getStringExtra("Preciso de Ajuda");
+        final String numero_d =  "11956557991";
+        final String mensagem_d = "Preciso de Ajuda" ;
+        //intent.getStringExtra("11956557991");
+        //intent.getStringExtra("Preciso de Ajuda");
         //Utils.showToast(MainActivity.this, numero_d);
         //Utils.showToast(MainActivity.this, mensagem_d);
 
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                     SmsManager manager = SmsManager.getDefault();
+
+                    Utils.showToast(MainActivity.this, "Mensagem Enviada");
                     manager.sendTextMessage(numero_d, null, mensagem_d, null, null);
 
                 }
