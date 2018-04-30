@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     android:stretchColumns="1"
-    android:weightSum="100"
-    tools:context=".SendActivity">
+    android:weightSum="100">
     <!-- WeightSum define a soma total da weight, utilizada para fazer alturas proporcionais a esse total -->
     <TableRow android:layout_weight="20">
         <!-- layout_weight define a proporção da altura em relação ao total (weightSum) -->

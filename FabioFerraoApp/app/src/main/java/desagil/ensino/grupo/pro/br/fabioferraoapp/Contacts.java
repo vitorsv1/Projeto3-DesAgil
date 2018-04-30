@@ -4,32 +4,49 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Contacts extends AppCompatActivity{
-    private String numero_cuidador = "11956557991";
-    private String numero_vitor = "13996091997";
-    private String numero_iago = "11966391551";
+    private String[] NUMBERS = {"11956557991", "13996091997", "11966391551"};
+    private String[] NAMES = {"Cuidador","Vitor", "Iago"};
+
     public static String numero = "id_numero_contato";
 
-    private void openMessagesActivity(String numero_contato) {
+    private ListView list_view;
+
+   /* private void openMessagesActivity(String numero_contato) {
         Intent intent = new Intent(this, message.class);
         Utils.showToast(Contacts.this, numero_contato);
         intent.putExtra(numero, numero_contato);
         startActivity(intent);
         finish();
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        Button buttonCuidador =  findViewById(R.id.alert_cuidador);
-        Button buttonIago =  findViewById(R.id.alert_vitor);
-        Button buttonVitor =  findViewById(R.id.alert_iago);
+        ListView listView = (ListView)findViewById(R.id.listView);
 
+        CustomAdapter customAdapter = new CustomAdapter();
 
+        listView.setAdapter(customAdapter);
+
+        //Button buttonCuidador =  findViewById(R.id.alert_cuidador);
+        //Button buttonIago =  findViewById(R.id.alert_vitor);
+        //Button buttonVitor =  findViewById(R.id.alert_iago);
+
+        /*
         buttonCuidador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,8 +67,40 @@ public class Contacts extends AppCompatActivity{
                 openMessagesActivity(numero_vitor);
             }
         });
+        */
+
+
 
     }
+    class CustomAdapter extends BaseAdapter{
 
+        @Override
+        public int getCount() {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view = getLayoutInflater().inflate(R.layout.contact_layout,null);
+
+            TextView textView_name = (TextView)view.findViewById(R.id.textView_name);
+            TextView textView_number = (TextView)view.findViewById(R.id.textView_number);
+
+            textView_name.setText(NAMES[i]);
+            textView_number.setText(NUMBERS[i]);
+
+            return null;
+        }
+    }
 }
 
