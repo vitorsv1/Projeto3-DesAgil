@@ -8,7 +8,8 @@ import android.widget.Button;
 
 public class Contacts extends AppCompatActivity{
     private String numero_cuidador = "11956557991";
-    private String numero_amigo = "11956557991";
+    private String numero_vitor = "13996091997";
+    private String numero_iago = "11966391551";
     public static String numero = "id_numero_contato";
 
     private void openMessagesActivity(String numero_contato) {
@@ -24,21 +25,29 @@ public class Contacts extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        Button buttoncuidador =  findViewById(R.id.alert_cuidador);
-        Button buttonamigo =  findViewById(R.id.alert_amigo);
+        Button buttonCuidador =  findViewById(R.id.alert_cuidador);
+        Button buttonIago =  findViewById(R.id.alert_vitor);
+        Button buttonVitor =  findViewById(R.id.alert_iago);
 
 
-        buttoncuidador.setOnClickListener(new View.OnClickListener() {
+        buttonCuidador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMessagesActivity(numero_cuidador);
             }
         });
 
-        buttonamigo.setOnClickListener(new View.OnClickListener() {
+        buttonIago.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openMessagesActivity(numero_amigo);
+                openMessagesActivity(numero_iago);
+            }
+        });
+
+        buttonVitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMessagesActivity(numero_vitor);
             }
         });
 
