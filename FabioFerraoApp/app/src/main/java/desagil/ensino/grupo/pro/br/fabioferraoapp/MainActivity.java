@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                     SmsManager manager = SmsManager.getDefault();
-
                     Utils.showToast(MainActivity.this, "Mensagem Enviada");
                     manager.sendTextMessage(numero_d, null, mensagem_d, null, null);
 
