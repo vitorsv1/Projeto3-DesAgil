@@ -1,5 +1,6 @@
 package desagil.ensino.grupo.pro.br.fabioferraoapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -42,41 +43,13 @@ public class Contacts extends AppCompatActivity{
 
         listView.setAdapter(customAdapter);
 
-        //Button buttonCuidador =  findViewById(R.id.alert_cuidador);
-        //Button buttonIago =  findViewById(R.id.alert_vitor);
-        //Button buttonVitor =  findViewById(R.id.alert_iago);
-
-        /*
-        buttonCuidador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMessagesActivity(numero_cuidador);
-            }
-        });
-
-        buttonIago.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMessagesActivity(numero_iago);
-            }
-        });
-
-        buttonVitor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMessagesActivity(numero_vitor);
-            }
-        });
-        */
-
-
-
     }
-    class CustomAdapter extends BaseAdapter{
+    private class CustomAdapter extends BaseAdapter{
 
+        //how many rows in my list
         @Override
         public int getCount() {
-            return 0;
+            return 3;
         }
 
         @Override
@@ -99,7 +72,7 @@ public class Contacts extends AppCompatActivity{
             textView_name.setText(NAMES[i]);
             textView_number.setText(NUMBERS[i]);
 
-            return null;
+            return view;
         }
     }
 }
