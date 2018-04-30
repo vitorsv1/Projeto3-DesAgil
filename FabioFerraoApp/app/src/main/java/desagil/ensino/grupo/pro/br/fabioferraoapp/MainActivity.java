@@ -7,6 +7,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,14 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_SEND_SMS = 0;
 
 
-//    private void openContactsActivity() {
-//        // Exemplo de código para abrir uma activity
-//        Intent intent = new Intent(this, Contacts.class);
-//        startActivity(intent);
-//
-//        // Depois de abrir a SendActivity, não há porque manter a MainActivity aberta.
-//        finish();
-//    }
 
     private void openAlertActivity() {
         Intent intent1 = getIntent();
@@ -40,14 +34,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonSMS = (Button) findViewById(R.id.button_alert);
+        Intent intent = getIntent();
+        final String numero_d =  "11956557991"; //intent.getStringExtra("11956557991");
+        final String mensagem_d = "Preciso de Ajuda" ;//intent.getStringExtra("Preciso de Ajuda");
+        //Utils.showToast(MainActivity.this, numero_d);
+        //Utils.showToast(MainActivity.this, mensagem_d);
 
-        buttonSMS.setOnClickListener(new View.OnClickListener() {
+        Button buttonalerta = (Button) findViewById(R.id.button_alert);
+
+        buttonalerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                if (mensagem_d.isEmpty()) {
+//                    Utils.showToast(MainActivity.this, "Mensagem vazia!");
+//                    return;
+//                }
+//
+//                if (!PhoneNumberUtils.isGlobalPhoneNumber(numero_d)) {
+//                    Utils.showToast(MainActivity.this, numero_d);
+//                    Utils.showToast(MainActivity.this, "Telefone inválido!");
+//                    return;
+//                }
+
                 // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-                    openAlertActivity();
+                    SmsManager manager = SmsManager.getDefault();
+                    manager.sendTextMessage(numero_d, null, mensagem_d, null, null);
+
                 }
                 // Se não temos permissão para enviar SMS, precisamos pedir essa permissão.
                 else {

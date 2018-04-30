@@ -12,7 +12,7 @@ public class SendAlert extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alert);
+        setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
         final String numero_d = intent.getStringExtra("11956557991");
