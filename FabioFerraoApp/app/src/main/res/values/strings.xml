@@ -8,4 +8,8 @@
     <string name="send">Send</string>
     <string name="morse">MORSE</string>
     <string name="oba_em_morse">Oba em morse</string>
+    <string name="arrow_down">Down Arrow</string>
+    <string name="arrow_up">Up Arrow</string>
+    <string name="oba_em_morce">Oba_em_morce</string>
+    <string name="obamor">oba_em_morce</string>
 </resources>
