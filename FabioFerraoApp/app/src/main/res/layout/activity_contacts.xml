@@ -5,6 +5,14 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="121dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/buttonUP"
+        android:text="Back" />
+
+    <Button
         android:id="@+id/buttonDown"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -28,12 +36,12 @@
         android:text="Up" />
 
     <Button
-        android:id="@+id/buttonSelect"
+        android:id="@+id/buttonSend"
         android:layout_width="wrap_content"
         android:layout_height="121dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         android:layout_toEndOf="@+id/buttonUP"
-        android:text="Select" />
+        android:text="Send" />
 
 </RelativeLayout>
