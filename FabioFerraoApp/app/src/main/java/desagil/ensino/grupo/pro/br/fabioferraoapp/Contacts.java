@@ -56,8 +56,8 @@ public class Contacts extends AppCompatActivity {
         setContentView(R.layout.activity_contacts);
 
         Intent intent = getIntent();
-        final String mensagem_e = intent.getStringExtra(MainActivity.mensagem);
-
+        //final String mensagem_e = intent.getStringExtra(MainActivity.mensagem);
+        final String mensagem_e = "FOI CRL!!";
         final ListView listView = (ListView) findViewById(R.id.listView);
 
         CustomAdapter customAdapter = new CustomAdapter();
