@@ -8,8 +8,7 @@
     android:stretchColumns="1"
     android:weightSum="100">
     <!-- WeightSum define a soma total da weight, utilizada para fazer alturas proporcionais a esse total -->
-    <TableRow
-        android:layout_weight="20">
+    <TableRow android:layout_weight="20">
         <!-- layout_weight define a proporção da altura em relação ao total (weightSum) -->
         <TextView android:id="@+id/view_message"
             android:layout_span="2"
@@ -24,7 +23,7 @@
             android:id="@+id/edit_message"
             android:layout_span="2"
             android:padding="3dip"
-            android:text="@string/obamor"/>
+            android:text="@string/oba_em_morse" />
     </TableRow>
 
     <TableRow android:layout_weight="10">
@@ -35,116 +34,73 @@
             android:hint="@string/telefone"
             android:inputType="phone"
             android:maxLines="1"
-            android:padding="3dip"/>
+            android:padding="3dip" />
     </TableRow>
 
     <TableRow
+        android:layout_height="197dp"
         android:layout_weight="50"
-        android:gravity="bottom|center_vertical">
+        android:gravity="bottom">
 
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
             android:layout_column="0"
-            android:weightSum="100"
-            android:gravity="start">
+            android:weightSum="100">
             <!-- aqui foi criado um novo weightSum pq eh um novo TableLayout -->
             <!-- note que esse TableLayout faz parte de um TableRow, e ocupa a coluna 0 do TableRow-->
 
+            <TableRow android:layout_weight="50">
 
-            <TableRow
-                android:layout_width="52dp"
-                android:layout_weight="50">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/button_alert"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
+                <Button
+                    android:id="@+id/button_backspace"
                     android:layout_column="0"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:padding="3dip"
-                    android:src="@android:drawable/ic_dialog_alert"
-                    android:text="@string/alert"
-                    app:backgroundTint="?attr/colorError"
-                    tools:ignore="VectorDrawableCompat" />
+                    android:text="@string/backspace" />
             </TableRow>
 
             <TableRow android:layout_weight="50">
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/button_backspace"
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp"
+                <Button
+                    android:id="@+id/button_space"
                     android:layout_column="0"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:padding="3dip"
-                    android:text="@string/backspace"
-                    app:backgroundTint="@android:color/holo_orange_dark"
-                    app:srcCompat="@android:drawable/ic_input_delete" />
+                    android:text="@string/space" />
             </TableRow>
 
         </TableLayout>
 
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:gravity="center">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/button_morse"
-                android:layout_width="208dp"
-                android:layout_height="226dp"
-                android:clickable="true"
-                android:cropToPadding="true"
-                android:focusable="true"
-                app:backgroundTint="@android:color/holo_red_dark"
-                app:srcCompat="@android:drawable/divider_horizontal_bright" />
-            <!-- esse botão acupa a coluna 1-->
-        </TableLayout>
+        <Button
+            android:id="@+id/button_morse"
+            android:layout_height="99dp"
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="@string/morse" />
+        <!-- esse botão acupa a coluna 1-->
 
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_column="0"
-            android:weightSum="100"
-            android:gravity="end">
+            android:layout_column="2"
+            android:weightSum="100">
             <!-- dnv, mais um TableLayout dentro de do msm TableRow, mas ocupando a coluna 2 -->
 
-            <TableRow
-                android:layout_width="52dp"
-                android:layout_weight="50">
+            <TableRow android:layout_weight="50">
 
-                <android.support.design.widget.FloatingActionButton
+                <Button
+                    android:id="@+id/button_alert"
+                    android:layout_column="0"
+                    android:padding="3dip"
+                    android:text="@string/alert" />
+            </TableRow>
+
+            <TableRow android:layout_weight="50">
+
+                <Button
                     android:id="@+id/button_enviar"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
+                    android:layout_height="match_parent"
                     android:layout_column="0"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:padding="3dip"
-                    android:text="@string/send"
-                    app:backgroundTint="@color/colorPrimaryDark"
-                    app:srcCompat="@android:drawable/ic_menu_send" />
+                    android:text="@string/send" />
             </TableRow>
 
-            <TableRow
-                android:layout_width="52dp"
-                android:layout_weight="50">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/button_space"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
-                    android:layout_column="0"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:padding="3dip"
-                    android:text="@string/space"
-                    app:backgroundTint="@android:color/holo_green_dark"
-                    app:srcCompat="?attr/editTextBackground" />
-            </TableRow>
         </TableLayout>
 
     </TableRow>
