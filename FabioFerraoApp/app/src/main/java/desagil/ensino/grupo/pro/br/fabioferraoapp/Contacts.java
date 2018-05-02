@@ -22,11 +22,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Contacts extends AppCompatActivity {
-    private String[] NUMBERS = {"11956557991", "13996091997", "11966391551"};
+    private static String[] NUMBERS = {"11956557991", "13996091997", "11966391551"};
     private String[] NAMES = {"Cuidador","Vitor", "Iago"};
     private int seletor = 0;
     private static final int REQUEST_SEND_SMS = 0;
-    public static String num;
+    public static String num = NUMBERS[0];
     public int getContactsLength(){
         return this.NAMES.length;
     }
@@ -66,7 +66,6 @@ public class Contacts extends AppCompatActivity {
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listView.setItemChecked(0,true);
         final TextView textView = (TextView)  getViewByPosition(listView.getCheckedItemPosition(),listView).findViewById(R.id.textView_number);
-        //final String num1 = textView.getText().toString();
 
         Button buttonBack = (Button) findViewById(R.id.buttonBack);
         Button buttonDown = (Button) findViewById(R.id.buttonDown);
@@ -84,7 +83,6 @@ public class Contacts extends AppCompatActivity {
                     listView.setItemChecked(listView.getCheckedItemPosition() + 1,true);
                     TextView textView = (TextView)  getViewByPosition(listView.getCheckedItemPosition(),listView).findViewById(R.id.textView_number);
                     num = textView.getText().toString();
-
 
                     //Toast.makeText(getApplicationContext(), "Selected item at position: " + listView.getCheckedItemPosition(), Toast.LENGTH_LONG).show();
                 }
@@ -118,14 +116,9 @@ public class Contacts extends AppCompatActivity {
             }
         });
 
-
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Caso seja igual a primeira posição, se não continua como as demais posições
-                //if (num1 == num){
-                //    num = num1;
-                //}
                 if (mensagem_e.isEmpty()) {
                     Utils.showToast(Contacts.this , "Mensagem vazia!");
                     return;
