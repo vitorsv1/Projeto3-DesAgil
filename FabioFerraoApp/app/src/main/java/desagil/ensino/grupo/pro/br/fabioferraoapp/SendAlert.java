@@ -20,9 +20,9 @@ public class SendAlert extends AppCompatActivity {
         Utils.showToast(SendAlert.this, numero_d);
         Utils.showToast(SendAlert.this, mensagem_d);
 
-        Button buttonenviar = (Button) findViewById(R.id.Enviar_alerta);
+        Button enviar = (Button) findViewById(R.id.Enviar_alerta);
 
-        buttonenviar.setOnClickListener(new View.OnClickListener() {
+        enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SmsManager manager = SmsManager.getDefault();

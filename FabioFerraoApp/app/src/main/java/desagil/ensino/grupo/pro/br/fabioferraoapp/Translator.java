@@ -1,9 +1,17 @@
 package desagil.ensino.grupo.pro.br.fabioferraoapp;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Translator {
+    private HashMap<Character, String> toMorse = new HashMap<Character, String>();
+    private HashMap<String, Character> toChar = new HashMap<String, Character>();
+
+    List<Character> char_list = Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'j', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+    List<String> morse_list = Arrays.asList(".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.");
+
     // ESTA CLASSE NÃO PODE SER MODIFICADA!
     private class Node {
         private char value;
@@ -56,18 +64,22 @@ public class Translator {
 
     // ESTE CONSTRUTOR DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public Translator() {
+        for (int i=0; i<char_list.size(); i++) {
+            toChar.put(morse_list.get(i), char_list.get(i));
+            toMorse.put(char_list.get(i), morse_list.get(i));
+        }
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public char morseToChar(String code) {
-        return ' ';
+        return toChar.get(code);
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public String charToMorse(char c) {
-        return null;
+        return toMorse.get(c);
     }
 
 

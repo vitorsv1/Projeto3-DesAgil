@@ -10,9 +10,10 @@
     <!-- WeightSum define a soma total da weight, utilizada para fazer alturas proporcionais a esse total -->
     <TableRow android:layout_weight="20">
         <!-- layout_weight define a proporção da altura em relação ao total (weightSum) -->
-        <TextView android:id="@+id/view_message"
+        <EditText
+            android:id="@+id/view_message"
             android:layout_span="2"
-            android:text="@string/oba"
+            android:hint="oba"
             android:padding="3dip" />
         <!-- layout_span junta as colunas do tablerow (no caso, a coluna 0, 1 e 2) -->
     </TableRow>

@@ -11,11 +11,13 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     // Inteiro que identifica um pedido de permissão para enviar SMS.
     private static final int REQUEST_SEND_SMS = 0;
     public static String mensagem = "mensagem a enviar";
+    private static String str;
 
 
     private void openContactsActivity(String mensagem_e) {
@@ -35,11 +37,49 @@ public class MainActivity extends AppCompatActivity {
         final String numero_d =  "11956557991";
         final String mensagem_d = "Preciso de Ajuda" ;
 
+        final EditText editMessage = (EditText) findViewById(R.id.view_message);
 
-        Button buttonalerta = (Button) findViewById(R.id.button_alert);
-        Button buttonenviar = (Button) findViewById(R.id.button_enviar);
+        Button alerta = (Button) findViewById(R.id.button_alert);
+        Button enviar = (Button) findViewById(R.id.button_enviar);
+        Button morse = (Button) findViewById(R.id.button_morse);
+        Button backspace = (Button) findViewById(R.id.button_backspace);
+        Button space = (Button) findViewById(R.id.button_space);
 
-        buttonalerta.setOnClickListener(new View.OnClickListener() {
+
+        morse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editMessage.append(".");
+            }
+        });
+
+        morse.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                editMessage.append("-");
+                return true;
+            }
+        });
+
+        space.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editMessage.append(" ");
+            }
+        }));
+
+        backspace.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String str = editMessage.getText().toString();
+                if (str.length() > 0) {
+                    str = str.substring(0, str.length() - 1);
+                    editMessage.setText(str);
+                }
+            }
+        }));
+
+        alerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                if (mensagem_d.isEmpty()) {
@@ -73,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        buttonenviar.setOnClickListener(new View.OnClickListener() {
+        enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mensagem_d.isEmpty()) {
@@ -105,6 +145,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        String str = editMessage.getText().toString();
+    }
+    public static String getMensagem() {
+        return str;
     }
 
 

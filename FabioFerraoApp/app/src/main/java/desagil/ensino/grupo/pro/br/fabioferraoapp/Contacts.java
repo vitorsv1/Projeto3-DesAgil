@@ -18,12 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class Contacts extends AppCompatActivity {
-    private static String[] NUMBERS = {"11956557991", "13996091997", "11966391551"};
-    private String[] NAMES = {"Cuidador","Vitor", "Iago"};
+    private static String[] NUMBERS = {"11995966586","11956557991", "13996091997", "11966391551"};
+    private String[] NAMES = {"Eu","Cuidador","Vitor", "Iago"};
     private int seletor = 0;
     private static final int REQUEST_SEND_SMS = 0;
     public static String num = NUMBERS[0];
@@ -55,9 +56,12 @@ public class Contacts extends AppCompatActivity {
 
         setContentView(R.layout.activity_contacts);
 
+
         Intent intent = getIntent();
         //final String mensagem_e = intent.getStringExtra(MainActivity.mensagem);
         final String mensagem_e = "FOI CRL!!";
+        //final String mensagem_e = MainActivity.getMensagem();
+        //final String mensagem_e = Translator.morseToChar(MainActivity.getMensagem());
         final ListView listView = (ListView) findViewById(R.id.listView);
 
         CustomAdapter customAdapter = new CustomAdapter();
@@ -75,8 +79,8 @@ public class Contacts extends AppCompatActivity {
         buttonDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (seletor == 2) {
-                    seletor = 2;
+                if (seletor == 3) {
+                    seletor = 3;
                 }
                 else{
                     seletor += 1;
@@ -158,7 +162,7 @@ public class Contacts extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         //how many rows in my list
