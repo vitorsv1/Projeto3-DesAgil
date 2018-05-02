@@ -66,7 +66,7 @@ public class Contacts extends AppCompatActivity {
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listView.setItemChecked(0,true);
         final TextView textView = (TextView)  getViewByPosition(listView.getCheckedItemPosition(),listView).findViewById(R.id.textView_number);
-        final String num1 = textView.getText().toString();
+        //final String num1 = textView.getText().toString();
 
         Button buttonBack = (Button) findViewById(R.id.buttonBack);
         Button buttonDown = (Button) findViewById(R.id.buttonDown);
@@ -118,15 +118,14 @@ public class Contacts extends AppCompatActivity {
             }
         });
 
-        //Caso seja igual a primeira posição, se não continua como as demais posições
-        if (num1 == num){
-            num = num1;
-        }
-
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Caso seja igual a primeira posição, se não continua como as demais posições
+                //if (num1 == num){
+                //    num = num1;
+                //}
                 if (mensagem_e.isEmpty()) {
                     Utils.showToast(Contacts.this , "Mensagem vazia!");
                     return;
