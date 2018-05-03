@@ -58,10 +58,9 @@ public class Contacts extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        //final String mensagem_e = intent.getStringExtra(MainActivity.mensagem);
-        final String mensagem_e = "FOI CRL!!";
-        //final String mensagem_e = MainActivity.getMensagem();
-        //final String mensagem_e = Translator.morseToChar(MainActivity.getMensagem());
+        final String mensagem_e = intent.getStringExtra(MainActivity.mensagem);
+
+        System.out.println(mensagem_e);
         final ListView listView = (ListView) findViewById(R.id.listView);
 
         CustomAdapter customAdapter = new CustomAdapter();
@@ -123,17 +122,6 @@ public class Contacts extends AppCompatActivity {
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mensagem_e.isEmpty()) {
-                    Utils.showToast(Contacts.this , "Mensagem vazia!");
-                    return;
-                }
-
-                if (!PhoneNumberUtils.isGlobalPhoneNumber(num)) {
-                    Utils.showToast(Contacts.this, num);
-                    Utils.showToast(Contacts.this, "Telefone inválido!");
-                    return;
-                }
-
                     // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                     if(ContextCompat.checkSelfPermission(Contacts.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                         SmsManager manager = SmsManager.getDefault();

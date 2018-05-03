@@ -64,22 +64,24 @@ public class Translator {
 
     // ESTE CONSTRUTOR DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public Translator() {
-        for (int i=0; i<char_list.size(); i++) {
-            toChar.put(morse_list.get(i), char_list.get(i));
-            toMorse.put(char_list.get(i), morse_list.get(i));
+        Node current = root;
+        String signal = " ";
+
+        for (int i=0; i < char_list.size(); i++) {
+
         }
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public char morseToChar(String code) {
-        return toChar.get(code);
+        return ' ';
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public String charToMorse(char c) {
-        return toMorse.get(c);
+        return null;
     }
 
 

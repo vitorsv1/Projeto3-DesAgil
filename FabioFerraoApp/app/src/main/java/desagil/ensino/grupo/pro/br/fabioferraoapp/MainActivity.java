@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_SEND_SMS = 0;
     public static String mensagem = "mensagem a enviar";
     private static String str;
+    private static String mensagem_d = "";
 
 
     private void openContactsActivity(String mensagem_e) {
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String numero_d =  "11956557991";
-        final String mensagem_d = "Preciso de Ajuda" ;
+        final String mensagem_a = "Preciso de ajuda!" ;
+        //final String mensagem_d = "sefsefe";
 
         final EditText editMessage = (EditText) findViewById(R.id.view_message);
 
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                     SmsManager manager = SmsManager.getDefault();
                     Utils.showToast(MainActivity.this, "Mensagem Enviada");
-                    manager.sendTextMessage(numero_d, null, mensagem_d, null, null);
+                    manager.sendTextMessage(numero_d, null, mensagem_a, null, null);
 
                 }
                 // Se não temos permissão para enviar SMS, precisamos pedir essa permissão.
@@ -116,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mensagem_d = editMessage.getText().toString();
                 if (mensagem_d.isEmpty()) {
                     Utils.showToast(MainActivity.this, "Mensagem vazia!");
                     return;
@@ -145,10 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        String str = editMessage.getText().toString();
-    }
-    public static String getMensagem() {
-        return str;
     }
 
 

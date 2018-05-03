@@ -16,7 +16,7 @@ public class SendAlert extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String numero_d = intent.getStringExtra("11956557991");
-        final String mensagem_d = intent.getStringExtra("Preciso de Ajuda");
+        final String mensagem_d = "Preciso de Ajuda";
         Utils.showToast(SendAlert.this, numero_d);
         Utils.showToast(SendAlert.this, mensagem_d);
 
