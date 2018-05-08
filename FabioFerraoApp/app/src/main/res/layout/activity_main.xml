@@ -20,11 +20,11 @@
 
     <TableRow android:layout_weight="20">
 
-        <TextView
+        <EditText
             android:id="@+id/edit_message"
             android:layout_span="2"
             android:padding="3dip"
-            android:text="@string/oba_em_morse" />
+            android:hint="@string/oba_em_morse" />
     </TableRow>
 
     <TableRow android:layout_weight="10">

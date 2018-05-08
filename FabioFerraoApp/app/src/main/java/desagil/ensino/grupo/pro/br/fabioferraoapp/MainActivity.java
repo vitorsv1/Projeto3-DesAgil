@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public static String mensagem = "mensagem a enviar";
     private static String str;
     private static String mensagem_d = "";
+    private Translator translator = new Translator();
 
 
     private void openContactsActivity(String mensagem_e) {
@@ -37,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String numero_d =  "11956557991";
         final String mensagem_a = "Preciso de ajuda!" ;
-        //final String mensagem_d = "sefsefe";
 
         final EditText editMessage = (EditText) findViewById(R.id.view_message);
+        final EditText viewMessage = (EditText) findViewById(R.id.edit_message);
 
         Button alerta = (Button) findViewById(R.id.button_alert);
         Button enviar = (Button) findViewById(R.id.button_enviar);
@@ -66,17 +67,18 @@ public class MainActivity extends AppCompatActivity {
         space.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editMessage.append(" ");
+                viewMessage.append(Character.toString(translator.morseToChar(editMessage.getText().toString())));
+                editMessage.setText("");
             }
         }));
 
         backspace.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String str = editMessage.getText().toString();
+                String str = viewMessage.getText().toString();
                 if (str.length() > 0) {
                     str = str.substring(0, str.length() - 1);
-                    editMessage.setText(str);
+                    viewMessage.setText(str);
                 }
             }
         }));
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mensagem_d = editMessage.getText().toString();
+                String mensagem_d = viewMessage.getText().toString();
                 if (mensagem_d.isEmpty()) {
                     Utils.showToast(MainActivity.this, "Mensagem vazia!");
                     return;

@@ -1,17 +1,10 @@
 package desagil.ensino.grupo.pro.br.fabioferraoapp;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Queue;
 
 public class Translator {
-    private HashMap<Character, String> toMorse = new HashMap<Character, String>();
-    private HashMap<String, Character> toChar = new HashMap<String, Character>();
-
-    List<Character> char_list = Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'j', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-    List<String> morse_list = Arrays.asList(".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.");
-
     // ESTA CLASSE NÃO PODE SER MODIFICADA!
     private class Node {
         private char value;
@@ -64,30 +57,100 @@ public class Translator {
 
     // ESTE CONSTRUTOR DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public Translator() {
-        Node current = root;
-        String signal = " ";
+        this.root = new Node();
+        this.map = new HashMap<Character, Node>();
 
-        for (int i=0; i < char_list.size(); i++) {
+        String abc = " etianmsurwdkgohvf l pjbxcyzq  54 3   2       16       7   8 90";
+        Node[] nodes = new Node[abc.length()];
 
+        for (int i = 0; i < abc.length(); i++) {
+            char value = abc.charAt(i);
+            Node node = new Node(value);
+            nodes[i] = node;
+
+            if (value != ' ') {
+                this.map.put(value, node);
+            }
         }
+
+        for (int i = 0; i < abc.length(); i++) {
+            if (i > 0) {
+                nodes[i].setParent(nodes[((i - 1)/2)]);
+            }
+            if (i < 31) {
+                nodes[i].setLeftChild(nodes[(2*i) + 1]);
+                nodes[i].setRightChild(nodes[(2*i) + 2]);
+            }
+        }
+        this.root = nodes[0];
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public char morseToChar(String code) {
-        return ' ';
+        Node current = root;
+        for (int i = 0; i < code.length(); i++) {
+            if (code.charAt(i) == '.') {
+                current = current.getLeftChild();
+            }
+            else if (code.charAt(i) == '-') {
+                current = current.getRightChild();
+            }
+            else {return ' ';}
+        }
+        return current.getValue();
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public String charToMorse(char c) {
-        return null;
+        Node current = new Node();
+        Node previous = new Node();
+        String morse = "";
+        current = map.get(c);
+        previous = map.get(c);
+
+        while (current.getParent() != null) {
+            current = current.getParent();
+            if (current.getLeftChild() == previous) {
+                morse += ".";
+                previous = previous.getParent();
+            }
+            else if (current.getRightChild() == previous) {
+                morse += "-";
+                previous = previous.getParent();
+            }
+        }
+        String morse_result = "";
+
+        for (int i = morse.length() - 1; i > 0; i--) {
+            morse_result = morse_result + morse.charAt(i);
+        }
+        return morse_result;
     }
 
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public LinkedList<String> getCodes() {
-        return null;
+
+        LinkedList<String> morse_palavra = new LinkedList<>();
+        Queue<Node> fila = new LinkedList<Node>();
+        fila.add(root);
+
+        while (!fila.isEmpty()) {
+            Node current = fila.poll();
+
+            if (current.getValue() != ' ') {
+                morse_palavra.add(this.charToMorse(current.getValue()));
+            }
+            if (current.getLeftChild() != null) {
+                fila.add(current.getLeftChild());
+            }
+            if (current.getRightChild() != null) {
+                fila.add(current.getRightChild());
+            }
+        }
+        return morse_palavra;
     }
 }
 

@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 public class Contacts extends AppCompatActivity {
     private static String[] NUMBERS = {"11995966586","11956557991", "13996091997", "11966391551"};
-    private String[] NAMES = {"Eu","Cuidador","Vitor", "Iago"};
+    private String[] NAMES = {"Eu", "Cuidador", "Vitor", "Iago"};
     private int seletor = 0;
     private static final int REQUEST_SEND_SMS = 0;
     public static String num = NUMBERS[0];
@@ -60,7 +60,6 @@ public class Contacts extends AppCompatActivity {
         Intent intent = getIntent();
         final String mensagem_e = intent.getStringExtra(MainActivity.mensagem);
 
-        System.out.println(mensagem_e);
         final ListView listView = (ListView) findViewById(R.id.listView);
 
         CustomAdapter customAdapter = new CustomAdapter();
