@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     // Inteiro que identifica um pedido de permissão para enviar SMS.
     private static final int REQUEST_SEND_SMS = 0;
     public static String mensagem = "mensagem a enviar";
-    private static String str;
-    private static String mensagem_d = "";
     private Translator translator = new Translator();
 
 

@@ -23,8 +23,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class DicionarioActivity extends AppCompatActivity {
+    private Dicionario dic = new Dicionario();
+
     //private char[] ALFABETO = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M','N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     private String[] ALFABETO = {"A","B","C","D","E","F","G","H"};
+    private String[] abc = dic.Chars();
+    private String[] morse = dic.Morse();
 
 
     public View getViewByPosition(int pos, ListView listView) {
@@ -64,7 +68,7 @@ public class DicionarioActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return ALFABETO.length;
+            return abc.length;
         }
 
         @Override
@@ -87,8 +91,8 @@ public class DicionarioActivity extends AppCompatActivity {
             TextView textView_letra = (TextView)view.findViewById(R.id.textView_letra);
             TextView textView_morse = (TextView)view.findViewById(R.id.textView_morse);
 
-            textView_letra.setText(ALFABETO[i]);
-            textView_morse.setText(ALFABETO[i]);
+            textView_letra.setText(abc[i]);
+            textView_morse.setText(morse[i]);
 
             return view;
         }
