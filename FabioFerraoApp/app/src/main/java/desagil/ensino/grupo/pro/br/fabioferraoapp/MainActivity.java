@@ -3,6 +3,8 @@ package desagil.ensino.grupo.pro.br.fabioferraoapp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_SEND_SMS = 0;
     public static String mensagem = "mensagem a enviar";
     private Translator translator = new Translator();
+    private final Handler handler = new Handler();
+    private CountDownTimer timer;
 
 
     private void openContactsActivity(String mensagem_e) {
@@ -53,7 +57,18 @@ public class MainActivity extends AppCompatActivity {
         Button space = (Button) findViewById(R.id.button_space);
         ImageButton dict = (ImageButton) findViewById(R.id.dicionario);
 
+        timer = new CountDownTimer(2000, 100) {
+            @Override
+            public void onTick(long l) {
 
+            }
+
+            @Override
+            public void onFinish() {
+                viewMessage.append(Character.toString(translator.morseToChar(editMessage.getText().toString())));
+                editMessage.setText("");
+            }
+        };
 
         dict.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 editMessage.append(".");
+                if(timer!=null){
+                    timer.cancel();
+                }
+                timer.start();
             }
         });
 
@@ -73,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View view) {
                 editMessage.append("-");
+                if(timer!=null){
+                    timer.cancel();
+                }
+                timer.start();
                 return true;
             }
         });
@@ -80,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
         space.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewMessage.append(Character.toString(translator.morseToChar(editMessage.getText().toString())));
-                editMessage.setText("");
+                viewMessage.append(" ");
             }
         }));
 
