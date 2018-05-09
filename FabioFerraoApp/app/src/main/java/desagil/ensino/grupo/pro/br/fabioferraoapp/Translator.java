@@ -123,7 +123,7 @@ public class Translator {
         }
         String morse_result = "";
 
-        for (int i = morse.length() - 1; i > 0; i--) {
+        for (int i = morse.length() - 1; i >= 0; i--) {
             morse_result = morse_result + morse.charAt(i);
         }
         return morse_result;
@@ -132,25 +132,7 @@ public class Translator {
 
     // ESTE MÉTODO DEVE SER PREENCHIDO DE ACORDO COM O ENUNCIADO!
     public LinkedList<String> getCodes() {
-
-        LinkedList<String> morse_palavra = new LinkedList<>();
-        Queue<Node> fila = new LinkedList<Node>();
-        fila.add(root);
-
-        while (!fila.isEmpty()) {
-            Node current = fila.poll();
-
-            if (current.getValue() != ' ') {
-                morse_palavra.add(this.charToMorse(current.getValue()));
-            }
-            if (current.getLeftChild() != null) {
-                fila.add(current.getLeftChild());
-            }
-            if (current.getRightChild() != null) {
-                fila.add(current.getRightChild());
-            }
-        }
-        return morse_palavra;
+        return null;
     }
 }
 
