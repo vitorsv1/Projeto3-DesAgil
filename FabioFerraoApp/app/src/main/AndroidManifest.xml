@@ -19,6 +19,7 @@
 
         <activity android:name=".Contacts" />
         <activity android:name=".SendAlert" />
+        <activity android:name=".DicionarioActivity" />
 
     </application>
 

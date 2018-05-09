@@ -20,7 +20,7 @@ public class SendAlert extends AppCompatActivity {
         Utils.showToast(SendAlert.this, numero_d);
         Utils.showToast(SendAlert.this, mensagem_d);
 
-        Button enviar = (Button) findViewById(R.id.Enviar_alerta);
+        Button enviar = (Button) findViewById(R.id.button_alert);
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override

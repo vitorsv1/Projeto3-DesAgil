@@ -12,6 +12,7 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
     // Inteiro que identifica um pedido de permissão para enviar SMS.
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Contacts.class);
         //intent.setData(Uri.parse(numero_contato));
         intent.putExtra(mensagem, mensagem_e);
+        startActivity(intent);
+        finish();
+    }
+    private void openDicionarioActivity() {
+        Intent intent = new Intent(this, DicionarioActivity.class);
         startActivity(intent);
         finish();
     }
@@ -47,7 +53,16 @@ public class MainActivity extends AppCompatActivity {
         Button morse = (Button) findViewById(R.id.button_morse);
         Button backspace = (Button) findViewById(R.id.button_backspace);
         Button space = (Button) findViewById(R.id.button_space);
+        ImageButton dict = (ImageButton) findViewById(R.id.dicionario);
 
+
+
+        dict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDicionarioActivity();
+            }
+        });
 
         morse.setOnClickListener(new View.OnClickListener() {
             @Override

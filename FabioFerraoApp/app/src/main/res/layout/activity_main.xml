@@ -18,6 +18,15 @@
             android:hint="Morse"
             android:padding="3dip"
             android:textSize="20dp" />
+
+        <ImageButton
+            android:id="@+id/dicionario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+
         <!-- layout_span junta as colunas do tablerow (no caso, a coluna 0, 1 e 2) -->
     </TableRow>
 
