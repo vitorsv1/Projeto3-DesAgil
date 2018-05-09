@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Button space = (Button) findViewById(R.id.button_space);
         ImageButton dict = (ImageButton) findViewById(R.id.dicionario);
 
-        timer = new CountDownTimer(2000, 100) {
+        timer = new CountDownTimer(1000, 100) {
             @Override
             public void onTick(long l) {
 
@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                viewMessage.append(Character.toString(translator.morseToChar(editMessage.getText().toString())));
+                if (editMessage.getText().toString().length() < 6) {
+                    viewMessage.append(Character.toString(translator.morseToChar(editMessage.getText().toString())));
+                }
+                else {viewMessage.append("");}
                 editMessage.setText("");
             }
         };
