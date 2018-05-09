@@ -25,8 +25,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Contacts extends AppCompatActivity {
-    private static String[] NUMBERS = {"11995966586","11956557991", "13996091997", "11966391551"};
-    private String[] NAMES = {"Eu", "Cuidador", "Vitor", "Iago"};
+    private static String[] NUMBERS = {"11956557991", "11995966586", "13996091997", "11966391551"};
+    private String[] NAMES = {"Cuidador", "Jorge", "Vitor", "Iago"};
     private int seletor = 0;
     private static final int REQUEST_SEND_SMS = 0;
     public static String num = NUMBERS[0];

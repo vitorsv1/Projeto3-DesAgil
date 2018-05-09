@@ -17,24 +17,30 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+
 public class MainActivity extends AppCompatActivity {
     // Inteiro que identifica um pedido de permissão para enviar SMS.
     private static final int REQUEST_SEND_SMS = 0;
     public static String mensagem = "mensagem a enviar";
+    public static String mensagem_dict = "mensagem a enviar";
     private Translator translator = new Translator();
     private final Handler handler = new Handler();
     private CountDownTimer timer;
+    private String mensagem_c = "";
+
+    private DicionarioActivity dic = new DicionarioActivity();
+
 
 
     private void openContactsActivity(String mensagem_e) {
         Intent intent = new Intent(this, Contacts.class);
-        //intent.setData(Uri.parse(numero_contato));
         intent.putExtra(mensagem, mensagem_e);
         startActivity(intent);
         finish();
     }
-    private void openDicionarioActivity() {
+    private void openDicionarioActivity(String mensagem_e) {
         Intent intent = new Intent(this, DicionarioActivity.class);
+        intent.putExtra(mensagem_dict,mensagem_e);
         startActivity(intent);
         finish();
     }
@@ -44,12 +50,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         Intent intent = getIntent();
+        if (intent.getStringExtra(DicionarioActivity.mensagem) != null) {
+            mensagem_c = intent.getStringExtra(DicionarioActivity.mensagem);
+        }
+
         final String numero_d =  "11956557991";
         final String mensagem_a = "Preciso de ajuda!" ;
 
         final EditText editMessage = (EditText) findViewById(R.id.view_message);
         final EditText viewMessage = (EditText) findViewById(R.id.edit_message);
+        System.out.println("aaaaaaaa");
+        System.out.println(mensagem_c);
+
+        viewMessage.append(mensagem_c);
 
         ImageButton alerta = (ImageButton) findViewById(R.id.button_alert);
         ImageButton enviar = (ImageButton) findViewById(R.id.button_enviar);
@@ -77,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         dict.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDicionarioActivity();
+                openDicionarioActivity(viewMessage.getText().toString());
             }
         });
 
@@ -125,17 +140,6 @@ public class MainActivity extends AppCompatActivity {
         alerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (mensagem_d.isEmpty()) {
-//                    Utils.showToast(MainActivity.this, "Mensagem vazia!");
-//                    return;
-//                }
-//
-//                if (!PhoneNumberUtils.isGlobalPhoneNumber(numero_d)) {
-//                    Utils.showToast(MainActivity.this, numero_d);
-//                    Utils.showToast(MainActivity.this, "Telefone inválido!");
-//                    return;
-//                }
-
                 // Se já temos permissão para enviar SMS, simplesmente abrimos a SendActivity.
                 if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                     SmsManager manager = SmsManager.getDefault();

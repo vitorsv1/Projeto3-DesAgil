@@ -25,14 +25,20 @@ import android.widget.TextView;
 
 public class DicionarioActivity extends AppCompatActivity {
     private Dicionario dic = new Dicionario();
+    public static String mensagem = "mensagem a enviar";
+
+    public String getMensagem() {
+        return mensagem;
+    }
 
     //private char[] ALFABETO = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M','N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     private String[] ALFABETO = {"A","B","C","D","E","F","G","H"};
     private String[] abc = dic.Chars();
     private String[] morse = dic.Morse();
 
-    private void openMainActivity(){
+    private void openMainActivity(String mensagem_e){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(mensagem, mensagem_e);
         startActivity(intent);
         finish();
     }
@@ -58,6 +64,8 @@ public class DicionarioActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        final String mensagem_d = intent.getStringExtra(MainActivity.mensagem);
+
         final ListView listView = (ListView) findViewById(R.id.listView_dicionario);
 
         CustomAdapter customAdapter = new CustomAdapter();
@@ -73,7 +81,7 @@ public class DicionarioActivity extends AppCompatActivity {
         buttonBackdic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMainActivity();
+                openMainActivity(mensagem_d);
             }
         });
 
