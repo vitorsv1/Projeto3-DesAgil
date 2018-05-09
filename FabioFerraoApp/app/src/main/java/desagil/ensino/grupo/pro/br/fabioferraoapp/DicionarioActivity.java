@@ -30,6 +30,12 @@ public class DicionarioActivity extends AppCompatActivity {
     private String[] abc = dic.Chars();
     private String[] morse = dic.Morse();
 
+    private void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     public View getViewByPosition(int pos, ListView listView) {
         final int firstListItemPosition = listView.getFirstVisiblePosition();
@@ -59,6 +65,17 @@ public class DicionarioActivity extends AppCompatActivity {
        // listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         //listView.setItemChecked(0,true);
         //final TextView textView = (TextView)  getViewByPosition(listView.getCheckedItemPosition(),listView).findViewById(R.id.textView_number);
+
+
+        Button buttonBackdic = (Button) findViewById(R.id.voltar_dicionario);
+
+        buttonBackdic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
+            }
+        });
+
 
     }
 

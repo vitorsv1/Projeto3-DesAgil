@@ -7,11 +7,31 @@
     <ListView
         android:id="@+id/listView_dicionario"
         android:layout_width="match_parent"
-        android:layout_height="446dp"
+        android:layout_height="431dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:choiceMode="singleChoice" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="bottom">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/voltar_dicionario"
+                android:text="Back" />
+
+        </TableRow>
+
+
+    </TableLayout>
 
 </RelativeLayout>
