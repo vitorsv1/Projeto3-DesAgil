@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -50,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
         final EditText editMessage = (EditText) findViewById(R.id.view_message);
         final EditText viewMessage = (EditText) findViewById(R.id.edit_message);
 
-        Button alerta = (Button) findViewById(R.id.button_alert);
-        Button enviar = (Button) findViewById(R.id.button_enviar);
-        Button morse = (Button) findViewById(R.id.button_morse);
-        Button backspace = (Button) findViewById(R.id.button_backspace);
-        Button space = (Button) findViewById(R.id.button_space);
+        ImageButton alerta = (ImageButton) findViewById(R.id.button_alert);
+        ImageButton enviar = (ImageButton) findViewById(R.id.button_enviar);
+        ImageButton morse = (ImageButton) findViewById(R.id.button_morse);
+        ImageButton backspace = (ImageButton) findViewById(R.id.button_backspace);
+        ImageButton space = (ImageButton) findViewById(R.id.button_space);
         ImageButton dict = (ImageButton) findViewById(R.id.dicionario);
 
         timer = new CountDownTimer(1000, 100) {
@@ -192,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    public void onRequestPermissionsResult(int request, String[] permissions, int[] results) {
+    public void onRequestPermissionsResult(int request, @NonNull String[] permissions, @NonNull int[] results) {
         // Se o pedido de permissão foi para enviar SMS...
         if(request == REQUEST_SEND_SMS) {
             // ...e a permissão foi de fato concedida, abrimos a SendActivity.

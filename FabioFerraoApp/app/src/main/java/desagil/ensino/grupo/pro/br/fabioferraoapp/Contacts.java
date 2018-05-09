@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -69,10 +71,10 @@ public class Contacts extends AppCompatActivity {
         listView.setItemChecked(0,true);
         final TextView textView = (TextView)  getViewByPosition(listView.getCheckedItemPosition(),listView).findViewById(R.id.textView_number);
 
-        Button buttonBack = (Button) findViewById(R.id.buttonBack);
-        Button buttonDown = (Button) findViewById(R.id.buttonDown);
-        Button buttonUp = (Button) findViewById(R.id.buttonUP);
-        Button buttonSend = (Button) findViewById(R.id.buttonSend);
+        ImageButton buttonBack = (ImageButton) findViewById(R.id.buttonBack);
+        ImageButton buttonDown = (ImageButton) findViewById(R.id.buttonDown);
+        ImageButton buttonUp = (ImageButton) findViewById(R.id.buttonUP);
+        ImageButton buttonSend = (ImageButton) findViewById(R.id.buttonSend);
 
         buttonDown.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,16 +154,6 @@ public class Contacts extends AppCompatActivity {
             return 4;
         }
 
-        //how many rows in my list
-//        @Override
-//        public int getCount() {
-//            int count = 0;
-//            for (int i = 0; i <= Contacts.getContactsLength(); i++) {
-//                count+=1;
-//            }
-//            return 3;
-//        }
-        @Override
         public Object getItem(int i) {
             return null;
         }
@@ -189,7 +181,7 @@ public class Contacts extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int request, String[] permissions, int[] results) {
+    public void onRequestPermissionsResult(int request, @NonNull String[] permissions, @NonNull int[] results) {
         // Se o pedido de permissão foi para enviar SMS...
         if(request == REQUEST_SEND_SMS) {
             // ...e a permissão foi de fato concedida, abrimos a SendActivity.

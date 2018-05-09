@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -67,7 +68,7 @@ public class DicionarioActivity extends AppCompatActivity {
         //final TextView textView = (TextView)  getViewByPosition(listView.getCheckedItemPosition(),listView).findViewById(R.id.textView_number);
 
 
-        Button buttonBackdic = (Button) findViewById(R.id.voltar_dicionario);
+        @SuppressLint("WrongViewCast") ImageButton buttonBackdic = (ImageButton) findViewById(R.id.voltar_dicionario);
 
         buttonBackdic.setOnClickListener(new View.OnClickListener() {
             @Override
