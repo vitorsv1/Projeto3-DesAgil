@@ -9,6 +9,7 @@
     android:stretchColumns="1"
     android:weightSum="100">
 
+    //Table que contem o botão do dicionario
     <TableRow
         android:gravity="right">
         <ImageButton
@@ -17,9 +18,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             app:srcCompat="@android:drawable/ic_menu_info_details" />
-
-
     </TableRow>
+
+    //Table com o morse
     <TableRow
         android:layout_weight="20"
         android:gravity="center_horizontal">
@@ -33,6 +34,7 @@
             android:textSize="20dp" />
     </TableRow>
 
+    //Table com a mensagem
     <TableRow
         android:layout_weight="20"
         android:gravity="center_horizontal|bottom">
@@ -58,7 +60,6 @@
             android:paddingBottom="10dp"
             android:paddingLeft="15dp">
             <TableRow android:layout_weight="50">
-
                 <ImageButton
                     android:id="@+id/button_backspace"
                     android:layout_width="65dp"
@@ -68,7 +69,6 @@
                     android:layout_marginRight="20dp"
                     app:srcCompat="@android:drawable/ic_input_delete"/>
             </TableRow>
-
             <TableRow android:layout_weight="50">
                 <ImageButton
                     android:id="@+id/button_space"
@@ -96,12 +96,11 @@
                 android:background="@drawable/morse"/>
         </TableLayout>
 
+        //Table dos botões da direita
         <TableLayout
            android:layout_weight="20"
             android:paddingBottom="10dp"
             android:paddingRight="15dp">
-            <!-- dnv, mais um TableLayout dentro de do msm TableRow, mas ocupando a coluna 2 -->
-
             <TableRow android:layout_weight="50">
                 <ImageButton
                     android:id="@+id/button_alert"
@@ -112,7 +111,6 @@
                     android:layout_marginLeft="20dp"
                     app:srcCompat="@android:drawable/ic_popup_reminder"/>
             </TableRow>
-
             <TableRow android:layout_weight="50">
                 <ImageButton
                     android:id="@+id/button_enviar"
@@ -124,9 +122,6 @@
                     app:srcCompat="@android:drawable/sym_action_email"
                     />
             </TableRow>
-
         </TableLayout>
-
     </TableRow>
-
 </TableLayout>

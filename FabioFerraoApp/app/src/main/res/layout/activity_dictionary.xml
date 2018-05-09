@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListView
         android:id="@+id/listView_dicionario"
@@ -21,13 +23,19 @@
         android:gravity="bottom">
 
         <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="35dp">
 
-            <Button
+            <ImageButton
                 android:id="@+id/voltar_dicionario"
-                android:text="Back" />
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/volta"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@android:drawable/ic_menu_revert"/>
 
         </TableRow>
 
