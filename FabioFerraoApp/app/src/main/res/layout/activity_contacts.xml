@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
@@ -22,41 +23,51 @@
         android:layout_alignParentLeft="true">
 
         <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:gravity="center_horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonUP"
-                android:text="UP" />
-
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/arrows"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@android:drawable/arrow_up_float"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="47dp"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:paddingBottom="35dp">
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back" />
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/volta"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@android:drawable/ic_menu_revert"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonDown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="23dp"
-                android:text="DOWN" />
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/arrows"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@android:drawable/arrow_down_float" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Send" />
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/sent"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@android:drawable/sym_action_email"/>
         </TableRow>
     </TableLayout>
 
