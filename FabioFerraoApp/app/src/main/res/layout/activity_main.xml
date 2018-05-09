@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,18 +8,9 @@
     android:layout_gravity="center_vertical"
     android:stretchColumns="1"
     android:weightSum="100">
-    <!-- WeightSum define a soma total da weight, utilizada para fazer alturas proporcionais a esse total -->
-    <TableRow android:layout_weight="20">
-        <!-- layout_weight define a proporção da altura em relação ao total (weightSum) -->
-        <EditText
-            android:id="@+id/view_message"
-            android:layout_width="331dp"
-            android:layout_height="71dp"
-            android:layout_span="2"
-            android:hint="Morse"
-            android:padding="3dip"
-            android:textSize="20dp" />
 
+    <TableRow
+        android:gravity="right">
         <ImageButton
             android:id="@+id/dicionario"
             android:layout_width="wrap_content"
@@ -27,11 +19,23 @@
             app:srcCompat="@android:drawable/ic_menu_info_details" />
 
 
-        <!-- layout_span junta as colunas do tablerow (no caso, a coluna 0, 1 e 2) -->
+    </TableRow>
+    <TableRow
+        android:layout_weight="20"
+        android:gravity="center_horizontal">
+        <EditText
+            android:id="@+id/view_message"
+            android:layout_width="331dp"
+            android:layout_height="60dp"
+            android:layout_span="2"
+            android:hint="Morse"
+            android:padding="3dip"
+            android:textSize="20dp" />
     </TableRow>
 
-    <TableRow android:layout_weight="20">
-
+    <TableRow
+        android:layout_weight="20"
+        android:gravity="center_horizontal|bottom">
         <EditText
             android:id="@+id/edit_message"
             android:layout_width="320dp"
@@ -42,81 +46,83 @@
             android:textSize="20dp" />
     </TableRow>
 
-    <TableRow android:layout_weight="10">
-
-        <EditText
-            android:id="@+id/edit_number"
-            android:layout_width="292dp"
-            android:layout_height="76dp"
-            android:layout_span="2"
-            android:hint="@string/telefone"
-            android:inputType="phone"
-            android:maxLines="1"
-            android:padding="3dip" />
-    </TableRow>
-
+    //Table dos botões inferiores
     <TableRow
         android:layout_height="197dp"
-        android:layout_weight="50"
+        android:layout_weight="40"
         android:gravity="bottom">
 
+        //Botões da esquerda
         <TableLayout
-            android:layout_column="0"
-            android:weightSum="100">
-            <!-- aqui foi criado um novo weightSum pq eh um novo TableLayout -->
-            <!-- note que esse TableLayout faz parte de um TableRow, e ocupa a coluna 0 do TableRow-->
-
+            android:layout_weight="20"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp">
             <TableRow android:layout_weight="50">
 
-                <Button
+                <ImageButton
                     android:id="@+id/button_backspace"
-                    android:layout_column="0"
-                    android:padding="3dip"
-                    android:text="@string/backspace" />
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/botao_back"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginRight="20dp"
+                    app:srcCompat="@android:drawable/ic_input_delete"/>
             </TableRow>
 
             <TableRow android:layout_weight="50">
-
-                <Button
+                <ImageButton
                     android:id="@+id/button_space"
-                    android:layout_column="0"
-                    android:padding="3dip"
-                    android:text="@string/space" />
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/space"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginRight="20dp"
+                    app:srcCompat="@drawable/space_bonito"/>
             </TableRow>
-
         </TableLayout>
 
+        //Botão do centro
+        <TableLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp">
 
-        <Button
-            android:id="@+id/button_morse"
-            android:layout_height="99dp"
-            android:layout_column="1"
-            android:padding="3dip"
-            android:text="@string/morse" />
-        <!-- esse botão acupa a coluna 1-->
+            <ImageButton
+                android:id="@+id/button_morse"
+                android:layout_height="167dp"
+                android:layout_width="167dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/morse"/>
+        </TableLayout>
 
         <TableLayout
-            android:layout_column="2"
-            android:weightSum="100">
+           android:layout_weight="20"
+            android:paddingBottom="10dp"
+            android:paddingRight="15dp">
             <!-- dnv, mais um TableLayout dentro de do msm TableRow, mas ocupando a coluna 2 -->
 
             <TableRow android:layout_weight="50">
-
-                <Button
+                <ImageButton
                     android:id="@+id/button_alert"
-                    android:layout_column="0"
-                    android:padding="3dip"
-                    android:text="@string/alert" />
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/alert"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="20dp"
+                    app:srcCompat="@android:drawable/ic_popup_reminder"/>
             </TableRow>
 
             <TableRow android:layout_weight="50">
-
-                <Button
+                <ImageButton
                     android:id="@+id/button_enviar"
-                    android:layout_height="match_parent"
-                    android:layout_column="0"
-                    android:padding="3dip"
-                    android:text="@string/send" />
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/sent"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="20dp"
+                    app:srcCompat="@android:drawable/sym_action_email"
+                    />
             </TableRow>
 
         </TableLayout>
